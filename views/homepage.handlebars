@@ -1,0 +1,35 @@
+<ol class="post-list">
+  {{#each posts}}
+  <li>
+    <article class="post">
+      <div class="title">
+        <a href="{{post_url}}" target="_blank">{{post.title}}</a>
+    
+        <span>({{date}})</span>
+        <span>({{category}})</span>
+        <span>({{lot_title}})</span>
+        <span>({{lot_location}})</span>
+        <span>({{lot_condition}})</span>
+        <span>({{pre_tax_amount}})</span>
+        <span>({{tax_name}})</span>
+        <span>({{tax_amount}})</span>
+      </div>
+      <div class="meta">
+
+        {{created_at}}
+        |
+        <a href="/post/{{id}}">{{comments.length}}</a>
+      </div>
+    </article>
+  </li>
+  {{/each}}
+</ol>
+
+        <span>({{date}})</span>
+        <span>({{category}})</span>
+        <span>({{lot_title}})</span>
+        <span>({{lot_location}})</span>
+        <span>({{lot_condition}})</span>
+        <span>({{pre_tax_amount}})</span>
+        <span>({{tax_name}})</span>
+        <span>({{tax_amount}})</span>
