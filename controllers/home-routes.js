@@ -3,6 +3,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
+//find all posts
 router.get('/', (req, res) => { 
     Post.findAll({
       attributes: [
@@ -17,6 +18,7 @@ router.get('/', (req, res) => {
         'tax_amount',
         'created_at',
       ],
+      // include user model
       include: [
         {
     model: User,
@@ -43,6 +45,9 @@ router.get('/', (req, res) => {
   });
 });
 
-
+// Login route
+router.get('/login', (req, res) => {
+    res.render('login');
+  });
 
 module.exports = router;

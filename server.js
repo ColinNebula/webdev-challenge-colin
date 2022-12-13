@@ -2,6 +2,21 @@ const express = require('express');
 const routes = require('./controllers/');
 const sequelize = require('./config/connection');
 
+// express sessions
+const session = require('express-session');
+
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const sess = {
+    secret: 'Supersecretsecret',
+    cookie: {},
+    resave: false,
+    saveUninitialized: true,
+    store: new SequelizeStore({
+      db: sequelize
+    })
+  };
+  
+  app.use(session(sess));
 
 
 const path = require('path');
