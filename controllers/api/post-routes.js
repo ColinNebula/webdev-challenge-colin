@@ -82,7 +82,7 @@ router.get('/', (req, res) => {
       pre_tax_amount: req.body.pre_tax_amount,
       tax_name: req.body.tax_name,
       tax_amount: req.body.tax_amount,
-      user_id: req.body.user_id
+      user_id: req.session.user_id
     })
       .then(dbPostData => res.json(dbPostData))
       .catch(err => {
@@ -123,7 +123,7 @@ router.get('/', (req, res) => {
       });
   });
   
-  router.delete('/:id', (req, res) => {
+  router.delete('/:id', withAuth, (req, res) => {
     console.log('id', req.params.id);
     Post.destroy({
       where: {
